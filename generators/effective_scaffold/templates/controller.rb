@@ -1,5 +1,5 @@
 class <%= controller_class_name %>Controller < ApplicationController
-  before_filter :load_model, :on => [ :show, :edit, :update, :destroy ]
+  before_filter :load_model, :except => [ :index, :new, :create ]
 
   # GET /<%= table_name %>
   def index
@@ -56,7 +56,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= file_name %>.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@<%= file_name %>) }
+      format.html { redirect_to(@<%= table_name %>.url) }
     end
   end
   
