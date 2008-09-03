@@ -1,4 +1,4 @@
-h1. "Effective Scaffold"
+h1. Effective Scaffold
 
 This is an effective scaffold generator for rails. Currently it requires Rails 2.1.0 or above.
 
@@ -6,7 +6,9 @@ This is an effective scaffold generator for rails. Currently it requires Rails 2
 
 h2. Installation
 
-<code>.script/plugin install git@github.com:felipemesquita/effective_scaffold.git</code>
+To install the plugin:
+
+  .script/plugin install git@github.com:felipemesquita/effective_scaffold.git
 
 To use the generator:
 
@@ -21,6 +23,6 @@ The effective scaffold generator creates a model, controller and a set of templa
 
 ***************************************************************************
 
-h3. Notes
+h2. Notes
 
 This plugin was created based on my needs. Feel free to fork it and add other functionalities.
