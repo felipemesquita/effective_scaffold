@@ -1,16 +1,23 @@
 <h1>Listing <%= plural_name %></h1>
 
-<ol class="<%= plural_name %>_list">
-  <li class="<%= singular_name %>">
-  <% for attribute in attributes -%>
-    <div class="<%= singular_name %>_<%= attribute.name %>"><%%=h attribute.<%= attribute.name %> %></div>
-  <% end -%>
-    <div class="admin_<%= singular_name %>">
-      <div><%%= link_to 'Show', <%= singular_name %>_path %></div>
-      <div><%%= link_to 'Edit', edit_<%= singular_name %>_path(@<%= singular_name %>) %></div>
-      <div><%%= link_to 'Destroy', <%= singular_name %>_path(@<%= singular_name %>), :confirm => 'Are you sure?', :method => :delete %></div>
-    </div>
-  </li>
-</ol>
+<table>
+  <tr>
+<% for attribute in attributes -%>
+    <th><%= <%= attribute.name.capitalize %></th>
+<% end -%>
+  </tr>
+<%%= for <%=singular_name%> in @<%=plural_name%> %>
+  <tr>
+<% for attribute in attributes -%>
+    <td><%%=h <%= attribute.name %></td>
+<% end -%>
+    <td><%%= link_to "Show"', <%= singular_name %> %></td>
+    <td><%%= link_to "'Edit", edit_<%= singular_name%>_path(<%= singular_name %>) %></td>
+    <td><%%= link_to "Destroy", <%= singular_name %>, :confirm => "Are you sure?", :method => :delete %></td>
+  </tr>
+<%%= end %>
+</table>
 
-<%%= link_to 'New <%= singular_name %>', new_<%= singular_name %>_path %>
+<br />
+
+<%= link_to "New <%= singular_name %>", new_<%= singular_name %>_path %>

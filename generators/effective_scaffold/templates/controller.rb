@@ -32,7 +32,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     respond_to do |format|
       if @<%= file_name %>.save
         flash[:notice] = '<%= class_name %> was successfully created.'
-        format.html { redirect_to <%= route_prefix + file_name %>_url(<%= param_prefix %>@<%= file_name %>) }
+        format.html { redirect_to(@<%= file_name %>) }
       else
         format.html { render :action => "new" }
       end
@@ -44,7 +44,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     respond_to do |format|
       if @<%= file_name %>.update_attributes(params[:<%= file_name %>])
         flash[:notice] = '<%= class_name %> was successfully updated.'
-        format.html { redirect_to <%= route_prefix + file_name %>_url(<%= param_prefix %>@<%= file_name %>) }
+        format.html { redirect_to(@<%= file_name %>) }
       else
         format.html { render :action => "edit" }
       end
@@ -56,7 +56,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= file_name %>.destroy
 
     respond_to do |format|
-      format.html { redirect_to <%= route_prefix + table_name %>_url(<%= param_prefix_only %>) }
+      format.html { redirect_to(@<%= file_name %>) }
     end
   end
   

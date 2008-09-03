@@ -1,10 +1,8 @@
 <h1>New <%= singular_name %></h1>
 
-<%%= error_messages_for @<%= singular_name %> %>
-
 <%% form_for(@<%= singular_name %>) do |f| %>
   <%%= render :partial => '/<%= plural_name %>/form', :locals => { :f => f }, :object => f %>
   <p>
-    <%%= submit_tag "Create" %> or <%%= link_to 'Cancel', <%= plural_name %>_path %>
+    <%%= f.submit "Create" %> or <%%= link_to "Cancel", <%= plural_name %>_path %>
   </p>
 <%% end %>
