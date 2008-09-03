@@ -7,11 +7,11 @@ h2. Installation
 
 To install the plugin:
 
-  .script/plugin install git@github.com:felipemesquita/effective_scaffold.git
+  script/plugin install git@github.com:felipemesquita/effective_scaffold.git
 
 To use the generator:
 
-  ./script/generate effective_scaffold MODEL
+  script/generate effective_scaffold MODEL
 
 
 h2. After installing
