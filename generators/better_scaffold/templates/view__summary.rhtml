@@ -1,0 +1,10 @@
+<li class="<%= singular_name %>">
+<% for attribute in attributes -%>
+    <div class="<%= singular_name %>_<%= attribute.name %>"><%%=h summary.<%= attribute.name %> %></div>
+<% end -%>
+    <div class="admin_<%= singular_name %>">
+      <div><%%= link_to 'Show', <%= route_prefix + singular_name %>_path(<%= param_prefix %>summary) %></div>
+      <div><%%= link_to 'Edit', edit_<%= route_prefix + singular_name %>_path(<%= param_prefix %>summary) %></div>
+      <div><%%= link_to 'Destroy', <%= route_prefix + singular_name %>_path(<%= param_prefix %>summary), :confirm => 'Are you sure?', :method => :delete %></div>
+    </div>
+</li>

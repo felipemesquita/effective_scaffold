@@ -1,0 +1,10 @@
+<% for attribute in attributes -%>
+<p>
+  <b><%= attribute.column.human_name %>:</b>
+  <%%=h @<%= singular_name %>.<%= attribute.name %> %>
+</p>
+
+<% end -%>
+
+<%%= link_to 'Edit', edit_<%= route_prefix + singular_name %>_path(<%= param_prefix %>@<%= singular_name %>) %> |
+<%%= link_to 'Back', <%= route_prefix + plural_name %>_path(<%= param_prefix_only %>) %>

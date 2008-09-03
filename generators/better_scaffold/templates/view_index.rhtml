@@ -1,0 +1,10 @@
+<h1>Listing <%= plural_name %></h1>
+
+<ol class="<%= plural_name %>_list">
+  <%%= render :partial => '/<%= plural_name %>/summary', :collection => @<%= plural_name %> %>
+</ol>
+<div class="digg_pagination">
+  <%%= will_paginate @<%= plural_name %>, :container => false %>
+</div>
+
+<%%= link_to 'New <%= singular_name %>', new_<%= route_prefix + singular_name %>_path(<%= param_prefix_only %>) %>
