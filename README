@@ -1,12 +1,1 @@
-BetterScaffold
-==============
-
-A modified CRUD generator for Rails, more for solving my own needs of
-  * generating nested resource with proper routes, e.g. "users/purchase" will generate "user_purchase_path"
-  * using will_paginate in "index" action
-  * using web_sg_form_builder for more consistent, semantically marked up forms (and creating those "_form" partials)
-  
-Try 
-  1. ./script/generate better_scaffold orders/purchase order_id:integer created_at:datetime amount:decimal
-  2. Visit http://localhost:3000/orders/1/purchases
-
+# Type the instructions
