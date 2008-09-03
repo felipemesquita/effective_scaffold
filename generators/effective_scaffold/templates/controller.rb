@@ -56,7 +56,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= file_name %>.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@<%= table_name %>.url) }
+      format.html { redirect_to(<%= table_name %>_url) }
     end
   end
   
