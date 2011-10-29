@@ -1,5 +1,5 @@
 class EffectiveScaffoldGenerator < Rails::Generator::NamedBase
-  attr_reader :controller_name, 
+  attr_reader :controller_name,
         :controller_prefix,
         :controller_class_path,
         :controller_file_path,
@@ -29,9 +29,9 @@ class EffectiveScaffoldGenerator < Rails::Generator::NamedBase
       @controller_class_name = "#{@controller_class_nesting}::#{@controller_class_name_without_nesting}"
     end
   end
-  
+
   def prefix_assigns
-    @prefix_assigns ||= { 
+    @prefix_assigns ||= {
       :route_prefix => @controller_prefix.empty? ? '' : (@controller_prefix.collect(&:singularize).join('_') + "_"),
       :param_prefix => @controller_prefix.empty? ? '' : (@controller_prefix.collect(&:singularize).collect {|x| "params[:#{x}_id]"}.join(', ') + ", "),
       :param_prefix_only => @controller_prefix.empty? ? '' : (@controller_prefix.collect(&:singularize).collect {|x| "params[:#{x}_id]"}.join(', ')),
@@ -76,13 +76,13 @@ class EffectiveScaffoldGenerator < Rails::Generator::NamedBase
 
       unless options[:skip_migration]
         m.migration_template(
-          'migration.rb', 'db/migrate', 
-          :assigns => { :migration_name => "Create#{class_name.pluralize.gsub(/::/, '')}", :attributes     => attributes }, 
+          'migration.rb', 'db/migrate',
+          :assigns => { :migration_name => "Create#{class_name.pluralize.gsub(/::/, '')}", :attributes     => attributes },
           :migration_file_name => "create_#{file_path.gsub(/\//, '_').pluralize}"
         )
       end
 
-      route_string = ":#{controller_file_name}" + 
+      route_string = ":#{controller_file_name}" +
         "#{@controller_prefix.empty? ? '' : ', :path_prefix => "' + (@controller_prefix.collect {|x| "#{x.pluralize}/:#{x.singularize}_id"}.join('/')) + '"'}" +
         "#{@controller_prefix.empty? ? '' : ', :name_prefix => "' + (@controller_prefix.collect {|x| x.singularize}.join('_')) + '_"'}"
       def route_string.to_sym; to_s; end
@@ -100,7 +100,7 @@ class EffectiveScaffoldGenerator < Rails::Generator::NamedBase
       %w[ index show new edit _form ]
     end
 
-    def model_name 
+    def model_name
       class_name.demodulize
     end
 end
