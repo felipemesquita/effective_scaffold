@@ -59,9 +59,9 @@ class <%= controller_class_name %>Controller < ApplicationController
       format.html { redirect_to(<%= table_name %>_url) }
     end
   end
-  
+
   protected
-  
+
   # Load the model by ID.
   def load_model
     @<%= file_name %> = <%= class_name %>.find(params[:id])
